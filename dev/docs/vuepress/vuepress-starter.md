@@ -1,6 +1,7 @@
 # 快速部署VuePress
 这里介绍了如何快速的创建一个vuepress项目并将其部署到github pages页面。
-案例：https://zhijie-he.github.io/learning-blogs/
+
+案例：<https://zhijie-he.github.io/learning-blogs/>
 
 ## 创建github库
 因为最终要将vuepress的网站部署到github pages上面，所以第一步首先创建GitHub库，如果不打算部署到github pages上面，可以跳过此步骤。
@@ -128,3 +129,15 @@ module.exports = {
 3. 设置Branch信息，选择main brance并且设置文件目录为与dev文件夹同级目录的docs目录
 4. 保存之后，会给出网站链接，等待刷新即部署成功。
 5. 再次更新vuepress内容，只需要构建完成后，复制dist文件内容到docs文件，然后push到github，即可自动部署。
+
+## FAQ
+1. 使用 yarn docs:build 运行 VuePress 时遇到的 Error: error:0308010C:digital envelope routines::unsupported 错误
+
+> 出现这个原因主要是因为node的版本太高而yarn的版本太低，目前我使用的node版本的是v21.6.1 yarn的版本为：1.22.22。 解决办法为将 NODE_OPTIONS 环境变量设置为 --openssl-legacy-provider 是解决这个问题的常见方法。这会告诉 Node.js 使用旧版的加密提供程序，这在新版本中可能默认不支持。
+
+
+* 对于 macOS/Linux：
+打开您的终端并运行以下命令： `export NODE_OPTIONS=--openssl-legacy-provider`
+
+* 对于 Windows：
+打开命令提示符并执行：`set NODE_OPTIONS=--openssl-legacy-provider`

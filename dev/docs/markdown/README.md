@@ -134,6 +134,13 @@ The [University of Rwanda](http://www.ur.ac.rw) was formed in 2013 through the m
 ## 代码行
 使用``可以创建单行的代码。
 使用四个缩进或者连续的三个```可以构建块状代码。
+注意在```代码块后面加上具体的语言，即可展示具体语言的代码块，比如python:
+
+```python
+x=1
+y=1
+print(x+y)
+```
 
 ```
 When `x = 3`, that means `x + 2 = 5`
